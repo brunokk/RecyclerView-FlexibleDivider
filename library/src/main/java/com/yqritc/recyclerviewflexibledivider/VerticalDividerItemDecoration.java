@@ -3,10 +3,10 @@ package com.yqritc.recyclerviewflexibledivider;
 import android.content.Context;
 import android.graphics.Rect;
 import android.graphics.drawable.Drawable;
-import android.support.annotation.DimenRes;
-import android.support.v4.view.ViewCompat;
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
+
+import androidx.annotation.DimenRes;
+import androidx.recyclerview.widget.RecyclerView;
 
 /**
  * Created by yqritc on 2015/01/15.
@@ -23,8 +23,8 @@ public class VerticalDividerItemDecoration extends FlexibleDividerDecoration {
     @Override
     protected Rect getDividerBound(int position, RecyclerView parent, View child) {
         Rect bounds = new Rect(0, 0, 0, 0);
-        int transitionX = (int) ViewCompat.getTranslationX(child);
-        int transitionY = (int) ViewCompat.getTranslationY(child);
+        int transitionX = (int) child.getTranslationX();
+        int transitionY = (int) child.getTranslationY();
         RecyclerView.LayoutParams params = (RecyclerView.LayoutParams) child.getLayoutParams();
         bounds.top = parent.getPaddingTop() +
                 mMarginProvider.dividerTopMargin(position, parent) + transitionY;
