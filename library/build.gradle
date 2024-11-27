@@ -1,5 +1,10 @@
 apply plugin: 'com.android.library'
 
+repositories {
+    mavenCentral()
+    maven { url 'https://jitpack.io' }
+}
+
 apply plugin: 'maven-publish'
 
 group = 'com.github.mdabbagh88'
