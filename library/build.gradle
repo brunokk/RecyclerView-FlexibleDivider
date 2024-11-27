@@ -6,6 +6,7 @@ repositories {
 }
 
 apply plugin: 'maven-publish'
+//apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.github.mdabbagh88'
 version = '1.4.0'
@@ -26,6 +27,10 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
+    }
+
+    lint {
+        checkReleaseBuilds = false
     }
 }
 
