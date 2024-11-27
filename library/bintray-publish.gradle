@@ -1,6 +1,9 @@
 apply plugin: 'maven-publish'
 //apply plugin: 'com.jfrog.bintray'
 
+group = 'com.github.mdabbagh88'
+version = '1.4.0'
+
 publishing {
     publications {
         mavenJava(MavenPublication) {
