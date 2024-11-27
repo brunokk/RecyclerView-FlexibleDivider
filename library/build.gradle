@@ -1,5 +1,10 @@
 apply plugin: 'com.android.library'
 
+apply plugin: 'maven-publish'
+
+group = 'com.github.mdabbagh88'
+version = '0.1.1'
+
 android {
     namespace = "com.yqritc.recyclerviewflexibledivider"
 
