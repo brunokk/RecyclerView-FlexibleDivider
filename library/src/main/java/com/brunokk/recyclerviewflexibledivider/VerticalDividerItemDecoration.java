@@ -1,4 +1,4 @@
-package com.brunokk.flexibleddivider;
+package com.brunokk.recyclerviewflexibledivider;
 
 import android.content.Context;
 import android.graphics.Rect;
