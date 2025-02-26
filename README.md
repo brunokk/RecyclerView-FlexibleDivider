@@ -73,7 +73,7 @@ If you want to customize divider depending on the position, implement the follow
 
 ### List of provider
 The following providers can be implemented and controllable for each divider drawn between cells.  
-Please refer to ComplexAdapter class in the [sample](/sample/src/main/java/com/yqritc/recyclerviewflexibledivider/sample) for the usage of providers in detail.
+Please refer to ComplexAdapter class in the [sample](/sample/src/main/java/com/brunokk/recyclerviewflexibledivider/sample) for the usage of providers in detail.
 
 - ColorProvider
 Provide color for divider

@@ -8,16 +8,16 @@ repositories {
 }
 
 android {
-    namespace = "com.yqritc.recyclerviewflexibledivider"
+    namespace = "com.brunokk.recyclerviewflexibledivider"
 
-    compileSdkVersion 30
+    compileSdkVersion COMPILE_SDK_VERSION as int
     //buildToolsVersion BUILD_TOOLS_VERSION
 
     defaultConfig {
-        minSdkVersion 21
-        targetSdkVersion 33
-        versionCode 15
-        versionName "1.4.0"
+        minSdkVersion MIN_SDK_VERSION as int
+        targetSdkVersion TARGET_SDK_VERSION as int
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }

@@ -1,28 +1,24 @@
-package com.yqritc.recyclerviewflexibledivider.sample;
+package com.brunokk.recyclerviewflexibledivider.sample;
 
-import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+import com.brunokk.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.DashPathEffect;
-import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class PaintActivity extends AppCompatActivity {
+public class ComplexActivity extends AppCompatActivity {
 
     public static void startActivity(Activity activity) {
-        Intent intent = new Intent(activity, PaintActivity.class);
+        Intent intent = new Intent(activity, ComplexActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         activity.startActivity(intent);
     }
@@ -39,20 +35,15 @@ public class PaintActivity extends AppCompatActivity {
             recyclerView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
 
-        SimpleAdapter adapter = new SimpleAdapter(this);
+        ComplexAdapter adapter = new ComplexAdapter(this);
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(GridLayoutManager.VERTICAL);
+        manager.setOrientation(OrientationHelper.VERTICAL);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
-
-        Paint paint = new Paint();
-        paint.setStrokeWidth(5);
-        paint.setColor(Color.BLUE);
-        paint.setAntiAlias(true);
-        paint.setPathEffect(new DashPathEffect(new float[]{25.0f, 25.0f}, 0));
         recyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this)
-                .paint(paint)
-                .showLastDivider()
+                .paintProvider(adapter)
+                .visibilityProvider(adapter)
+                .marginProvider(adapter)
                 .build());
     }
 

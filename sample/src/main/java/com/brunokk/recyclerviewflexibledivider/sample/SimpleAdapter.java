@@ -1,4 +1,4 @@
-package com.yqritc.recyclerviewflexibledivider.sample;
+package com.brunokk.recyclerviewflexibledivider.sample;
 
 import android.content.Context;
 import android.view.LayoutInflater;

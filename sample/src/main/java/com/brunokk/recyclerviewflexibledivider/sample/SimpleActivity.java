@@ -1,6 +1,6 @@
-package com.yqritc.recyclerviewflexibledivider.sample;
+package com.brunokk.recyclerviewflexibledivider.sample;
 
-import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+import com.brunokk.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,14 +9,15 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class SimpleGridActivity extends AppCompatActivity {
+public class SimpleActivity extends AppCompatActivity {
 
     public static void startActivity(Activity activity) {
-        Intent intent = new Intent(activity, SimpleGridActivity.class);
+        Intent intent = new Intent(activity, SimpleActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         activity.startActivity(intent);
     }
@@ -27,8 +28,8 @@ public class SimpleGridActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sample);
 
         SimpleAdapter adapter = new SimpleAdapter(this);
-        GridLayoutManager manager = new GridLayoutManager(this, 3);
-        manager.setOrientation(GridLayoutManager.VERTICAL);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        manager.setOrientation(OrientationHelper.VERTICAL);
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_recyclerview);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);

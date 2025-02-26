@@ -1,4 +1,4 @@
-package com.yqritc.recyclerviewflexibledivider;
+package com.brunokk.recyclerviewflexibledivider;
 
 import android.content.Context;
 import android.content.res.Resources;

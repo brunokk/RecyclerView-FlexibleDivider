@@ -1,23 +1,27 @@
-package com.yqritc.recyclerviewflexibledivider.sample;
+package com.brunokk.recyclerviewflexibledivider.sample;
 
-import com.yqritc.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
+import com.brunokk.recyclerviewflexibledivider.HorizontalDividerItemDecoration;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.OrientationHelper;
 import androidx.recyclerview.widget.RecyclerView;
 
 
-public class SimpleActivity extends AppCompatActivity {
+public class PaintActivity extends AppCompatActivity {
 
     public static void startActivity(Activity activity) {
-        Intent intent = new Intent(activity, SimpleActivity.class);
+        Intent intent = new Intent(activity, PaintActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         activity.startActivity(intent);
     }
@@ -27,13 +31,28 @@ public class SimpleActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sample);
 
+        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_recyclerview);
+        // Workaround for dash path effect
+        // https://code.google.com/p/android/issues/detail?id=29944
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.HONEYCOMB) {
+            recyclerView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+        }
+
         SimpleAdapter adapter = new SimpleAdapter(this);
         LinearLayoutManager manager = new LinearLayoutManager(this);
-        manager.setOrientation(OrientationHelper.VERTICAL);
-        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.main_recyclerview);
+        manager.setOrientation(GridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(manager);
         recyclerView.setAdapter(adapter);
-        recyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this).build());
+
+        Paint paint = new Paint();
+        paint.setStrokeWidth(5);
+        paint.setColor(Color.BLUE);
+        paint.setAntiAlias(true);
+        paint.setPathEffect(new DashPathEffect(new float[]{25.0f, 25.0f}, 0));
+        recyclerView.addItemDecoration(new HorizontalDividerItemDecoration.Builder(this)
+                .paint(paint)
+                .showLastDivider()
+                .build());
     }
 
 
