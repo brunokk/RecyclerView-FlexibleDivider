@@ -1,4 +1,4 @@
-package com.ethan.flexibleddivider;
+package com.brunokk.flexibleddivider;
 
 import android.content.Context;
 import android.content.res.Resources;
