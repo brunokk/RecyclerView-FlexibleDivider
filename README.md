@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.github.brunokk:RecyclerView-FlexibleDivider:1.4.1'
+    implementation 'com.github.brunokk:RecyclerView-FlexibleDivider:1.4.2'
 }
 ```
 
